@@ -1,0 +1,40 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Avis{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+        <h1>Avis</h1>
+
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ avi.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ avi.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ avi.Prenom }}</td>
+            </tr>
+            <tr>
+                <th>Avis</th>
+                <td>{{ avi.Avis }}</td>
+            </tr>
+            <tr>
+                <th>Profession</th>
+                <td>{{ avi.Profession }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a href="{{ path('avis_index') }}"><button class="btn btn-white">Retour</button></a>
+
+        <a href="{{ path('avis_edit', {'id': avi.id}) }}"><button class="btn btn-warning">Modifier</button></a>
+
+        {{ include('avis/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

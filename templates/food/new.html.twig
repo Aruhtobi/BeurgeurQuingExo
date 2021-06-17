@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}New Food{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+        <h1>Ajouter de la food</h1>
+
+        {{ include('food/_form.html.twig') }}
+
+        <a href="{{ path('food_index') }}"><button class="btn btn-white">Retour</button></a>
+    </div>
+{% endblock %}

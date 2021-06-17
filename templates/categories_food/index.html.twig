@@ -1,0 +1,40 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}CategoriesFood index{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+        <h1>CategoriesFood index</h1>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Icon</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for categories_food in categories_foods %}
+                <tr>
+                    <td>{{ categories_food.id }}</td>
+                    <td><i class="{{ categories_food.icon }}"></i></td>
+                    <td>{{ categories_food.nom }}</td>
+                    <td>{{ categories_food.description }}</td>
+                    <td>
+                        <a href="{{ path('categories_food_show', {'id': categories_food.id}) }}"><button class="btn btn-success">Afficher</button></a>
+                        <a href="{{ path('categories_food_edit', {'id': categories_food.id}) }}"><button class="btn btn-warning">Modifier</button></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Aucune catégories</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('categories_food_new') }}"><button class="btn btn-success">Ajouter</button></a>
+    </div>
+{% endblock %}

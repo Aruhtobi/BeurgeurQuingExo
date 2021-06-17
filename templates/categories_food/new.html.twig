@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}New CategoriesFood{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+        <h1>Ajouter une catégories</h1>
+
+        {{ include('categories_food/_form.html.twig') }}
+
+        <a href="{{ path('categories_food_index') }}"><button class="btn btn-light">Retour</button></a>
+    </div>
+{% endblock %}

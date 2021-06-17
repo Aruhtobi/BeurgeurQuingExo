@@ -1,0 +1,44 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Slider{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+        <h1>Slider</h1>
+
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ slider.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ slider.Titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ slider.Description }}</td>
+            </tr>
+            <tr>
+                <th>Bouton1</th>
+                <td>{{ slider.Bouton1 }}</td>
+            </tr>
+            <tr>
+                <th>Bouton2</th>
+                <td>{{ slider.Bouton2 }}</td>
+            </tr>
+            <tr>
+                <th>Images</th>
+                <td><img src="{{ vich_uploader_asset(slider.images, "imageFile") }}" style="width: 200px; height: 150px;" alt=""></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a href="{{ path('slider_index') }}"><button class="btn btn-light">Retour</button></a>
+
+        <a href="{{ path('slider_edit', {'id': slider.id}) }}"><button class="btn btn-warning">Modifier</button></a>
+
+        {{ include('slider/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

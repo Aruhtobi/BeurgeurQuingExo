@@ -1,0 +1,45 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Liste des sliders{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+        <h1>Liste des sliders</h1>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Bouton1</th>
+                <th>Bouton2</th>
+                <th>Images</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for slider in sliders %}
+                <tr>
+                    <td>{{ slider.id }}</td>
+                    <td>{{ slider.Titre }}</td>
+                    <td>{{ slider.Description }}</td>
+                    <td>{{ slider.Bouton1 }}</td>
+                    <td>{{ slider.Bouton2 }}</td>
+                    <td><img src="{{ vich_uploader_asset(slider.images, "imageFile") }}" style="width: 200px; height: 150px;" alt=""></td>
+                    <td>
+                        <a href="{{ path('slider_show', {'id': slider.id}) }}"><button class="btn btn-success">Afficher</button></a>
+                        <a href="{{ path('slider_edit', {'id': slider.id}) }}"><button class="btn btn-warning">Modifier</button></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">Aucun slider ajouter</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('slider_new') }}"><button class="btn btn-danger">Ajouter un Slider</button></a>
+    </div>
+{% endblock %}

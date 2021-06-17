@@ -1,0 +1,36 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}CategoriesFood{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+        <h1>CategoriesFood</h1>
+
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ categories_food.id }}</td>
+            </tr>
+            <tr>
+                <th>Icon</th>
+                <td>{{ categories_food.icon }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ categories_food.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ categories_food.description }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a href="{{ path('categories_food_index') }}"><button class="btn btn-light">Retour</button></a>
+
+        <a href="{{ path('categories_food_edit', {'id': categories_food.id}) }}"><button class="btn btn-warning">Modifier</button></a>
+
+        {{ include('categories_food/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

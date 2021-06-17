@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}New Slider{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+        <h1>Ajouter un slider</h1>
+
+        {{ include('slider/_form.html.twig') }}
+
+        <button class="btn btn-dark"><a href="{{ path('slider_index') }}">back to list</a></button>
+    </div>
+{% endblock %}

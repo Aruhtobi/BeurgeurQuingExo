@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}New Images{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+        <h1>Create new Images</h1>
+
+        {{ include('images/_form.html.twig') }}
+
+        <a href="{{ path('images_index') }}"><button class="btn btn-light">Retour</button></a>
+    </div>
+{% endblock %}

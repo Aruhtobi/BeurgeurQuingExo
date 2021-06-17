@@ -1,0 +1,50 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Liste des Chefs{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+        <h1>Liste des Chefs</h1>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Fonction</th>
+                <th>Twitter</th>
+                <th>Facebook</th>
+                <th>Instagram</th>
+                <th>Linkedin</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for chef in chefs %}
+                <tr>
+                    <td>{{ chef.id }}</td>
+                    <td>{{ chef.Nom }}</td>
+                    <td>{{ chef.Prenom }}</td>
+                    <td>{{ chef.Fonction }}</td>
+                    <td>{{ chef.Twitter }}</td>
+                    <td>{{ chef.Facebook }}</td>
+                    <td>{{ chef.Instagram }}</td>
+                    <td>{{ chef.Linkedin }}</td>
+                    <td>
+                        <a href="{{ path('chefs_show', {'id': chef.id}) }}"><button class="btn btn-success">Afficher</button></a>
+                        <br>
+                        <a href="{{ path('chefs_edit', {'id': chef.id}) }}"><button class="btn btn-warning">Modifier</button></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="9">Aucun chefs trouver</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('chefs_new') }}"><button class="btn btn-light">Ajouter un chef</button></a>
+    </div>
+{% endblock %}

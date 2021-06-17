@@ -1,0 +1,15 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Modifier un Avis{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+        <h1>Modifier un avis</h1>
+
+        {{ include('avis/_form.html.twig', {'button_label': 'Update'}) }}
+
+        <a href="{{ path('avis_index') }}"><button class="btn btn-light">Retour</button></a>
+
+        {{ include('avis/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

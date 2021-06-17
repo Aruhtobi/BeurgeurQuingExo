@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}New Chefs{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+        <h1>Create new Chefs</h1>
+
+        {{ include('chefs/_form.html.twig') }}
+
+        <a href="{{ path('chefs_index') }}"><button class="btn btn-light">Retour</button></a>
+    </div>
+{% endblock %}

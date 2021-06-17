@@ -1,0 +1,45 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Avis index{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+        <h1>Avis index</h1>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Images</th>
+                <th>Avis</th>
+                <th>Profession</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for avi in avis %}
+                <tr>
+                    <td>{{ avi.id }}</td>
+                    <td>{{ avi.Nom }}</td>
+                    <td>{{ avi.Prenom }}</td>
+                    <td><img src="{{ vich_uploader_asset(avi.images, "imageFile") }}" style="width: 200px; height: 150px;" alt=""></td>
+                    <td>{{ avi.Avis }}</td>
+                    <td>{{ avi.Profession }}</td>
+                    <td>
+                        <a href="{{ path('avis_show', {'id': avi.id}) }}"><button class="btn btn-success">Afficher</button></a>
+                        <a href="{{ path('avis_edit', {'id': avi.id}) }}"><button class="btn btn-warning">Modifier</button></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">Aucun avis trouver</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('avis_new') }}"><button class="btn btn-success">Ajouter</button></a>
+    </div>
+{% endblock %}

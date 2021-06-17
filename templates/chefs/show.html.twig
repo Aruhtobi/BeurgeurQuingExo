@@ -1,0 +1,52 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Chefs{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+        <h1>Chefs</h1>
+
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ chef.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ chef.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ chef.Prenom }}</td>
+            </tr>
+            <tr>
+                <th>Fonction</th>
+                <td>{{ chef.Fonction }}</td>
+            </tr>
+            <tr>
+                <th>Twitter</th>
+                <td>{{ chef.Twitter }}</td>
+            </tr>
+            <tr>
+                <th>Facebook</th>
+                <td>{{ chef.Facebook }}</td>
+            </tr>
+            <tr>
+                <th>Instagram</th>
+                <td>{{ chef.Instagram }}</td>
+            </tr>
+            <tr>
+                <th>Linkedin</th>
+                <td>{{ chef.Linkedin }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a href="{{ path('chefs_index') }}">back to list</a>
+
+        <a href="{{ path('chefs_edit', {'id': chef.id}) }}">edit</a>
+
+        {{ include('chefs/_delete_form.html.twig') }}
+    </div>
+{% endblock %}
